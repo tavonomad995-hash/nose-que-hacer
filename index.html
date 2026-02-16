@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Feliz San Valentín</title>
+</head>
+
+<body>
+    <div class="valentines-day">
+        <div class="envelope"></div>
+        <div class="heart"></div>
+        <div class="text">¡FELIZ DÍA DE<br>SAN VALENTÍN!</div>
+        <div class="front"></div>
+    </div>
+
+    <div id="card">
+        <div class="side one">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="side two">
+            <h2>🌷🌷🌷</h2>
+            <p>Querido(a) [Angela],</p>
+            <p>
+                En este San Valentín, quiero recordarte lo especial que eres. Cada sonrisa compartida, cada momento
+                juntos es un tesoro. Eres una persona maravillosa, tanto por dentro como por fuera. Valoro cada instante
+                compartido. Gracias por ser quien eres. 🫶(waaaa)
+            </p>
+            <p>
+                ¡Feliz San Valentín!
+            </p>
+            <p>
+                Con cariño,<br>
+                [JOSU]
+            </p>
+        </div>
+        <audio id="love-audio" autoplay loop>
+   <source src="activos/audio.mp3" type="audio/mpeg">
+</audio>
+
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="assets/js/main.js"></script>
+    <!-- Agrega este control de volumen justo antes de cerrar el body -->
+    <div style="position: fixed; bottom: 80px; right: 20px; z-index: 1000; 
+                background: white; padding: 15px; border-radius: 10px; 
+                box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-volume-down" style="color: #ff4d6d;"></i>
+            <input type="range" id="quick-volume" min="0" max="1" step="0.1" value="0.7" 
+                style="width: 100px;">
+            <i class="fas fa-volume-up" style="color: #ff4d6d;"></i>
+            <span id="vol-value">70%</span>
+        </div>
+    </div>
+
+    <script>
+    const audio = document.getElementById('love-audio');
+    const volControl = document.getElementById('quick-volume');
+    const volValue = document.getElementById('vol-value');
+
+    if (audio) {
+        volControl.addEventListener('input', function() {
+            audio.volume = this.value;
+            volValue.textContent = Math.round(this.value * 100) + '%';
+        });
+    }
+</script>
+</body>
+
+</html>
